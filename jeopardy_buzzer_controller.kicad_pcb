@@ -437,7 +437,7 @@
       (net 18 "GND") (pinfunction "Pin_1") (pintype "passive") (tstamp 2230054d-b331-4cf7-9fcc-d36c11110667))
     (pad "2" thru_hole circle (at 5.08 0) (size 2.6 2.6) (drill 1.3) (layers *.Cu *.Mask)
       (net 21 "Net-(U1-Pad8)") (pinfunction "Pin_2") (pintype "passive") (tstamp d19c7590-a389-49c6-aa77-eaae8d2325ff))
-    (model "${KIPRJMOD}/2EDGV-5.08-02P-14-00AH.STEP"
+    (model "${KIPRJMOD}/2EDGV-5.08-02P-14-00AH_reduced_file_size.step"
       (offset (xyz -2.5 3.7 0))
       (scale (xyz 1 1 1))
       (rotate (xyz -90 0 0))
@@ -706,7 +706,7 @@
       (net 22 "Net-(U1-Pad24)") (pinfunction "Pin_1") (pintype "passive") (tstamp b904a497-00b3-471a-94f7-72e8627a91a5))
     (pad "2" thru_hole circle (at 5.08 0) (size 2.6 2.6) (drill 1.3) (layers *.Cu *.Mask)
       (net 18 "GND") (pinfunction "Pin_2") (pintype "passive") (tstamp 4b2f518b-f461-4cad-bdc0-6cf65ff51a68))
-    (model "${KIPRJMOD}/2EDGV-5.08-02P-14-00AH.STEP"
+    (model "${KIPRJMOD}/2EDGV-5.08-02P-14-00AH_reduced_file_size.step"
       (offset (xyz -2.5 3.7 0))
       (scale (xyz 1 1 1))
       (rotate (xyz -90 0 0))
@@ -1175,7 +1175,7 @@
       (net 18 "GND") (pinfunction "Pin_1") (pintype "passive") (tstamp 2db1c4ca-ebb1-4f18-bac3-1501c8299c1b))
     (pad "2" thru_hole circle (at 5.08 0) (size 2.6 2.6) (drill 1.3) (layers *.Cu *.Mask)
       (net 20 "Net-(U1-Pad7)") (pinfunction "Pin_2") (pintype "passive") (tstamp 0b1e1107-3fc4-4419-924f-5b67b29aaecc))
-    (model "${KIPRJMOD}/2EDGV-5.08-02P-14-00AH.STEP"
+    (model "${KIPRJMOD}/2EDGV-5.08-02P-14-00AH_reduced_file_size.step"
       (offset (xyz -2.5 3.7 0))
       (scale (xyz 1 1 1))
       (rotate (xyz -90 0 0))

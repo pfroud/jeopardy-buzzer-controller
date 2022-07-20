@@ -5,6 +5,9 @@ https://grabcad.com/library/degson-2edg-series-5-08mm-pluggable-terminal-block-p
 See GrabCAD help article "How can models be used and shared?"
 https://help.grabcad.com/article/246-how-can-models-be-used-and-shared
 
+Modified by Peter Froud on July 20th 2022. I opened the STEP file in
+FreeCAD and then re-exported it to STEP without making any changes, 
+which reduced the file size from 2.2 MB to 1.3 MB.
 
 
 Arduino Pro Micro kicad stuff by Biacco42 on Github
