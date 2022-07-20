@@ -1,4 +1,4 @@
 (sym_lib_table
-  (lib (name "Arduino_Pro_Micro")(type "KiCad")(uri "C:/Users/pfrou/Downloads/ProMicroKiCad-master/ProMicroKiCad-master/promicro_library/promicro.kicad_sym")(options "")(descr ""))
+  (lib (name "Arduino_Pro_Micro")(type "KiCad")(uri "${KIPRJMOD}/ProMicroKiCad/promicro_library/promicro.kicad_sym")(options "")(descr ""))
   (lib (name "XLR_connector_with_ground_pin")(type "KiCad")(uri "${KIPRJMOD}/XLR_connector_with_ground_pin.kicad_sym")(options "")(descr ""))
 )
