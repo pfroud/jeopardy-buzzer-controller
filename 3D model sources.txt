@@ -1,0 +1,17 @@
+2EDGV-5.08-02P-14-00AH.STEP
+"DEGSON 2EDG Series 5.08mm pluggable terminal block pack" by Sig Elso on GrabCAD
+https://grabcad.com/library/degson-2edg-series-5-08mm-pluggable-terminal-block-pack-1/details?folder_id=9836725
+
+See GrabCAD help article "How can models be used and shared?"
+https://help.grabcad.com/article/246-how-can-models-be-used-and-shared
+
+
+
+Arduino Pro Micro kicad stuff by Biacco42 on Github
+https://github.com/Biacco42/ProMicroKiCad
+
+
+
+Neutrik NC4MBV 3D model from 
+https://www.neutrik.com/en/product/nc4mbv-1
+https://www.neutrik.com/media/12439/download/d-nc4mbv.stp?v=1
