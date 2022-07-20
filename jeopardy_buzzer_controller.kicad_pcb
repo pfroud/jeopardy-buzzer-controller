@@ -222,7 +222,7 @@
       (net 18 "GND") (pinfunction "4") (pintype "passive") (tstamp 0330c66a-0526-4771-b07a-6c8469a4c757))
     (pad "G" thru_hole circle (at 4.445 8.225) (size 2.9 2.9) (drill 1.2) (layers *.Cu *.Mask)
       (net 18 "GND") (pinfunction "G") (pintype "passive") (tstamp 77679d4e-9bc8-4e21-8c8e-57744efded59))
-    (model "${KIPRJMOD}/Neutrik_NC4MBV.stp"
+    (model "${KIPRJMOD}/3D models/Neutrik_NC4MBV.stp"
       (offset (xyz 4.5 0 19))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 180 0))
@@ -310,7 +310,7 @@
       (net 18 "GND") (pinfunction "GND") (pintype "power_in") (tstamp 631476db-4882-41ca-8613-2a09f233e4ae))
     (pad "24" thru_hole circle locked (at -13.97 -7.62) (size 1.6 1.6) (drill 1.1) (layers *.Cu *.Mask "F.SilkS")
       (net 22 "Net-(U1-Pad24)") (pinfunction "RAW") (pintype "power_out") (tstamp dbcc02d6-d212-49f1-b749-9527b76104f5))
-    (model "${KIPRJMOD}/sparkfun_pro_micro.x3d"
+    (model "${KIPRJMOD}/3D models/sparkfun_pro_micro.x3d"
       (offset (xyz 14 7.5 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 90))
@@ -437,7 +437,7 @@
       (net 18 "GND") (pinfunction "Pin_1") (pintype "passive") (tstamp 2230054d-b331-4cf7-9fcc-d36c11110667))
     (pad "2" thru_hole circle (at 5.08 0) (size 2.6 2.6) (drill 1.3) (layers *.Cu *.Mask)
       (net 21 "Net-(U1-Pad8)") (pinfunction "Pin_2") (pintype "passive") (tstamp d19c7590-a389-49c6-aa77-eaae8d2325ff))
-    (model "${KIPRJMOD}/2EDGV-5.08-02P-14-00AH_reduced_file_size.step"
+    (model "${KIPRJMOD}/3D models/2EDGV-5.08-02P-14-00AH_reduced_file_size.step"
       (offset (xyz -2.5 3.7 0))
       (scale (xyz 1 1 1))
       (rotate (xyz -90 0 0))
@@ -537,7 +537,7 @@
       (net 18 "GND") (pinfunction "4") (pintype "passive") (tstamp 42bd0578-6909-4c4d-82e5-1a9d5990cc30))
     (pad "G" thru_hole circle (at 4.445 8.225) (size 2.9 2.9) (drill 1.2) (layers *.Cu *.Mask)
       (net 18 "GND") (pinfunction "G") (pintype "passive") (tstamp da974fdc-416d-48aa-a1c7-669bede4f1bf))
-    (model "${KIPRJMOD}/Neutrik_NC4MBV.stp"
+    (model "${KIPRJMOD}/3D models/Neutrik_NC4MBV.stp"
       (offset (xyz 4.5 0 19))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 180 0))
@@ -637,7 +637,7 @@
       (net 18 "GND") (pinfunction "4") (pintype "passive") (tstamp 825d5e8b-e95d-4fed-b892-caf9610bb1ea))
     (pad "G" thru_hole circle (at 4.445 8.225) (size 2.9 2.9) (drill 1.2) (layers *.Cu *.Mask)
       (net 18 "GND") (pinfunction "G") (pintype "passive") (tstamp bd921df5-49b5-4676-a9e7-b01e87991f28))
-    (model "${KIPRJMOD}/Neutrik_NC4MBV.stp"
+    (model "${KIPRJMOD}/3D models/Neutrik_NC4MBV.stp"
       (offset (xyz 4.5 0 19))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 180 0))
@@ -706,7 +706,7 @@
       (net 22 "Net-(U1-Pad24)") (pinfunction "Pin_1") (pintype "passive") (tstamp b904a497-00b3-471a-94f7-72e8627a91a5))
     (pad "2" thru_hole circle (at 5.08 0) (size 2.6 2.6) (drill 1.3) (layers *.Cu *.Mask)
       (net 18 "GND") (pinfunction "Pin_2") (pintype "passive") (tstamp 4b2f518b-f461-4cad-bdc0-6cf65ff51a68))
-    (model "${KIPRJMOD}/2EDGV-5.08-02P-14-00AH_reduced_file_size.step"
+    (model "${KIPRJMOD}/3D models/2EDGV-5.08-02P-14-00AH_reduced_file_size.step"
       (offset (xyz -2.5 3.7 0))
       (scale (xyz 1 1 1))
       (rotate (xyz -90 0 0))
@@ -806,7 +806,7 @@
       (net 18 "GND") (pinfunction "4") (pintype "passive") (tstamp 141d3ed6-e9bd-4bef-92ce-a52b938a8d13))
     (pad "G" thru_hole circle (at 4.445 8.225) (size 2.9 2.9) (drill 1.2) (layers *.Cu *.Mask)
       (net 18 "GND") (pinfunction "G") (pintype "passive") (tstamp 5ec15cce-0481-460c-8742-29d85d0f4240))
-    (model "${KIPRJMOD}/Neutrik_NC4MBV.stp"
+    (model "${KIPRJMOD}/3D models/Neutrik_NC4MBV.stp"
       (offset (xyz 4.5 0 19))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 180 0))
@@ -906,7 +906,7 @@
       (net 18 "GND") (pinfunction "4") (pintype "passive") (tstamp c731b728-80e5-420c-ae27-5bc054505c57))
     (pad "G" thru_hole circle (at 4.445 8.225) (size 2.9 2.9) (drill 1.2) (layers *.Cu *.Mask)
       (net 18 "GND") (pinfunction "G") (pintype "passive") (tstamp 6458724f-86c7-4d76-a18a-df4802f3e0f2))
-    (model "${KIPRJMOD}/Neutrik_NC4MBV.stp"
+    (model "${KIPRJMOD}/3D models/Neutrik_NC4MBV.stp"
       (offset (xyz 4.5 0 19))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 180 0))
@@ -1006,7 +1006,7 @@
       (net 18 "GND") (pinfunction "4") (pintype "passive") (tstamp 3c6fb142-82a2-44c6-9681-94c788c3ea7f))
     (pad "G" thru_hole circle (at 4.445 8.225) (size 2.9 2.9) (drill 1.2) (layers *.Cu *.Mask)
       (net 18 "GND") (pinfunction "G") (pintype "passive") (tstamp 2cf63d2b-c101-4da3-b5ee-2b9bc23f7bef))
-    (model "${KIPRJMOD}/Neutrik_NC4MBV.stp"
+    (model "${KIPRJMOD}/3D models/Neutrik_NC4MBV.stp"
       (offset (xyz 4.5 0 19))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 180 0))
@@ -1106,7 +1106,7 @@
       (net 18 "GND") (pinfunction "4") (pintype "passive") (tstamp 64cb5d00-4f89-4424-a30f-814d3c423e50))
     (pad "G" thru_hole circle (at 4.445 8.225) (size 2.9 2.9) (drill 1.2) (layers *.Cu *.Mask)
       (net 18 "GND") (pinfunction "G") (pintype "passive") (tstamp 7772c167-96c6-4c95-aeeb-9222021ee139))
-    (model "${KIPRJMOD}/Neutrik_NC4MBV.stp"
+    (model "${KIPRJMOD}/3D models/Neutrik_NC4MBV.stp"
       (offset (xyz 4.5 0 19))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 180 0))
@@ -1175,7 +1175,7 @@
       (net 18 "GND") (pinfunction "Pin_1") (pintype "passive") (tstamp 2db1c4ca-ebb1-4f18-bac3-1501c8299c1b))
     (pad "2" thru_hole circle (at 5.08 0) (size 2.6 2.6) (drill 1.3) (layers *.Cu *.Mask)
       (net 20 "Net-(U1-Pad7)") (pinfunction "Pin_2") (pintype "passive") (tstamp 0b1e1107-3fc4-4419-924f-5b67b29aaecc))
-    (model "${KIPRJMOD}/2EDGV-5.08-02P-14-00AH_reduced_file_size.step"
+    (model "${KIPRJMOD}/3D models/2EDGV-5.08-02P-14-00AH_reduced_file_size.step"
       (offset (xyz -2.5 3.7 0))
       (scale (xyz 1 1 1))
       (rotate (xyz -90 0 0))
@@ -1275,7 +1275,7 @@
       (net 18 "GND") (pinfunction "4") (pintype "passive") (tstamp 7a3f70aa-36f4-4df1-84ef-ede97f62862a))
     (pad "G" thru_hole circle (at 4.445 8.225) (size 2.9 2.9) (drill 1.2) (layers *.Cu *.Mask)
       (net 18 "GND") (pinfunction "G") (pintype "passive") (tstamp 7b3e41c9-d9d2-4695-8619-dfffbfe1b118))
-    (model "${KIPRJMOD}/Neutrik_NC4MBV.stp"
+    (model "${KIPRJMOD}/3D models/Neutrik_NC4MBV.stp"
       (offset (xyz 4.5 0 19))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 180 0))
