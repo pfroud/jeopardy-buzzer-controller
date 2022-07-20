@@ -12,6 +12,7 @@ which reduced the file size from 2.2 MB to 1.3 MB.
 
 Arduino Pro Micro kicad stuff by Biacco42 on Github
 https://github.com/Biacco42/ProMicroKiCad
+(This is a git submodule)
 
 
 
