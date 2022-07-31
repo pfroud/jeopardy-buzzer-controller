@@ -3,22 +3,22 @@
 #define PIN_ENABLE_SWITCH 2
 
 /*
-Arduino Pro Micro pinout
-    +---[USB]---+
-  1 |o         o| RAW
-  0 |o         o| GND
-GND |o         o| RST
-GND |0         o| VCC
-  2 |o         o| 21
-  3 |o         o| 20
-  4 |o         o| 19
-  5 |o         o| 18
-  6 |o         o| 15
-  7 |o         o| 14
-  8 |o         o| 16
-  9 |o         o| 10
-    +-----------+
- */
+   Arduino Pro Micro pinout
+      +---[USB]---+
+    1 |o         o| RAW
+    0 |o         o| GND
+  GND |o         o| RST
+  GND |o         o| VCC
+    2 |o         o| 21
+    3 |o         o| 20
+    4 |o         o| 19
+    5 |o         o| 18
+    6 |o         o| 15
+    7 |o         o| 14
+    8 |o         o| 16
+    9 |o         o| 10
+      +-----------+
+*/
 
 typedef struct {
   int arduinoPinNumber;
@@ -27,7 +27,7 @@ typedef struct {
 } Channel;
 
 #define CHANNEL_COUNT 3
-const Channel channels[] = {
+Channel channels[] = {
   {3, 'a', false},
   {4, 'b', false},
   {5, 'c', false}
@@ -60,21 +60,21 @@ void loop() {
 
 void doKeyboardStuff() {
   for (int i = 0; i < CHANNEL_COUNT; i++) {
-    Channel presentChannel = channels[i];
+    const Channel presentChannel = channels[i];
 
     // Inverted because using built-in pull-up resistor.
     const bool isPhysicalButtonDown = digitalRead(presentChannel.arduinoPinNumber) == LOW;
 
     if (isPhysicalButtonDown != presentChannel.isSoftwareKeyboardKeyDown) {
-    
       // https://www.arduino.cc/reference/en/language/functions/usb/keyboard/
-      if (presentChannel.isSoftwareKeyboardKeyDown) {
+      if (isPhysicalButtonDown) {
         Keyboard.press(presentChannel.keyboardCharacter);
       } else {
         Keyboard.release(presentChannel.keyboardCharacter);
       }
-      presentChannel.isSoftwareKeyboardKeyDown = isPhysicalButtonDown;
-    }
 
+      // Changing the value in the presentChannel variable does not update the channels array
+      channels[i].isSoftwareKeyboardKeyDown = isPhysicalButtonDown;
+    }
   }
 }
