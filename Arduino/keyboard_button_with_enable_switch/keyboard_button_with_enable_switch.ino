@@ -18,7 +18,7 @@ GND |0         o| VCC
   8 |o         o| 16
   9 |o         o| 10
     +-----------+
- * /
+ */
 
 typedef struct {
   int arduinoPinNumber;
