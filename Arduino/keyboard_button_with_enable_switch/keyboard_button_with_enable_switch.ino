@@ -1,6 +1,7 @@
 #include <Keyboard.h>
 
-#define PIN_ENABLE_SWITCH 2
+#define PIN_ENABLE_SWITCH 8
+#define PIN_ENABLE_LIGHT 9
 
 /*
    Arduino Pro Micro pinout
@@ -28,33 +29,28 @@ typedef struct {
 
 #define CHANNEL_COUNT 3
 Channel channels[] = {
-  {3, 'a', false},
-  {4, 'b', false},
-  {5, 'c', false}
+  {2, 'a', false},
+  {3, 'b', false},
+  {4, 'c', false}
 };
 
 void setup() {
-  TXLED0;
-
   pinMode(PIN_ENABLE_SWITCH, INPUT);
-
+  pinMode(PIN_ENABLE_LIGHT, OUTPUT);
   for (int i = 0; i < CHANNEL_COUNT; i++) {
     pinMode(channels[i].arduinoPinNumber, INPUT_PULLUP);
   }
-
   Keyboard.begin();
 }
 
-// https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide/all#example-1-blinkies
 
 void loop() {
-
   const bool isEnabled = digitalRead(PIN_ENABLE_SWITCH) == HIGH;
   if (isEnabled) {
-    TXLED1;
+    digitalWrite(PIN_ENABLE_LIGHT, HIGH);
     doKeyboardStuff();
   } else {
-    TXLED0;
+    digitalWrite(PIN_ENABLE_LIGHT, LOW);
   }
 }
 
