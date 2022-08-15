@@ -874,6 +874,11 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 02acc36f-a721-4c6c-bbaf-407ff40ba08e)
   )
+  (text "Copyright Peter Froud 2022.\n\nThis source describes Open Hardware and is licensed under the CERN-OHL-S v2.\n\nYou may redistribute and modify this source and make products using it under\nthe terms of the CERN-OHL-S v2 (https://ohwr.org/cern_ohl_s_v2.txt).\n\nThis source is distributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,\nINCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A\nPARTICULAR PURPOSE. Please see the CERN-OHL-S v2 for applicable conditions. \n\nSource location: https://github.com/pfroud/jeopardy-buzzer-controller"
+    (at 13.97 195.58 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 0fc2eb1e-dd87-4009-9d72-0ab05da89282)
+  )
 
   (label "XLR6" (at 120.65 96.52 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
