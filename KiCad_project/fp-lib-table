@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name "Arduino_Pro_Micro")(type "KiCad")(uri "${KIPRJMOD}/ProMicroKiCad/promicro.pretty")(options "")(descr ""))
+  (lib (name "custom_xlr_footprint")(type "KiCad")(uri "${KIPRJMOD}/custom_xlr_footprint.pretty")(options "")(descr "Neutrik NC4MBV with bigger holes"))
 )
