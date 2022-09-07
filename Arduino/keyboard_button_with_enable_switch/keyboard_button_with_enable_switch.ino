@@ -1,25 +1,31 @@
 #include <Keyboard.h>
 
-#define PIN_ENABLE_SWITCH 8
-#define PIN_ENABLE_LIGHT 9
-
 /*
-   Arduino Pro Micro pinout
-      +---[USB]---+
-    1 |o         o| RAW
-    0 |o         o| GND
-  GND |o         o| RST
-  GND |o         o| VCC
-    2 |o         o| 21
-    3 |o         o| 20
-    4 |o         o| 19
-    5 |o         o| 18
-    6 |o         o| 15
-    7 |o         o| 14
-    8 |o         o| 16
-    9 |o         o| 10
-      +-----------+
+               Arduino Pro Micro pinout
+
+  Arduino   KiCad                    KiCad    Arduino
+   pin      symbol                   symbol    pin
+  number     pin     +---[USB]---+    pin     number
+    1         1      |o         o|    24       RAW
+    0         2      |o         o|    23       GND
+  GND         3      |o         o|    22       RST
+  GND         4      |o         o|    21       VCC
+    2         5      |o         o|    20       21
+    3         6      |o         o|    19       20
+    4         7      |o         o|    18       19
+    5         8      |o         o|    17       18
+    6         9      |o         o|    16       15
+    7        10      |o         o|    15       14
+    8        11      |o         o|    14       16
+    9        12      |o         o|    13       10
+                     +-----------+  
 */
+
+// Pin 7 on KiCad symbol is Arduino pin 4
+#define PIN_ENABLE_SWITCH 4
+
+// Pin 8 on KiCad symbol is Arduino pin 5
+#define PIN_ENABLE_LIGHT 5
 
 typedef struct {
   int arduinoPinNumber;
@@ -27,15 +33,20 @@ typedef struct {
   bool isSoftwareKeyboardKeyDown;
 } Channel;
 
-#define CHANNEL_COUNT 3
+#define CHANNEL_COUNT 8
 Channel channels[] = {
-  {2, 'a', false},
-  {3, 'b', false},
-  {4, 'c', false}
+  {10, '1', false}, // Pin 13 on KiCad symbol is Arduino pin 10
+  {16, '2', false}, // Pin 14 on KiCad symbol is Arduino pin 16
+  {14, '3', false}, // Pin 15 on KiCad symbol is Arduino pin 14
+  {15, '4', false}, // Pin 16 on KiCad symbol is Arduino pin 15
+  {18, '5', false}, // Pin 17 on KiCad symbol is Arduino pin 18
+  {19, '6', false}, // Pin 18 on KiCad symbol is Arduino pin 19
+  {20, '7', false}, // Pin 19 on KiCad symbol is Arduino pin 20
+  {21, '8', false}  // Pin 20 on KiCad symbol is Arduino pin 21
 };
 
 void setup() {
-  pinMode(PIN_ENABLE_SWITCH, INPUT);
+  pinMode(PIN_ENABLE_SWITCH, INPUT_PULLUP);
   pinMode(PIN_ENABLE_LIGHT, OUTPUT);
   for (int i = 0; i < CHANNEL_COUNT; i++) {
     pinMode(channels[i].arduinoPinNumber, INPUT_PULLUP);
@@ -45,7 +56,8 @@ void setup() {
 
 
 void loop() {
-  const bool isEnabled = digitalRead(PIN_ENABLE_SWITCH) == HIGH;
+  // Inverted because using built-in pull-up resistor.
+  const bool isEnabled = digitalRead(PIN_ENABLE_SWITCH) == LOW;
   if (isEnabled) {
     digitalWrite(PIN_ENABLE_LIGHT, HIGH);
     doKeyboardStuff();
@@ -76,16 +88,16 @@ void doKeyboardStuff() {
 }
 
 /*
-Copyright Peter Froud 2022.
+  Copyright Peter Froud 2022.
 
-This source describes Open Hardware and is licensed under the CERN-OHL-S v2.
+  This source describes Open Hardware and is licensed under the CERN-OHL-S v2.
 
-You may redistribute and modify this source and make products using it under
-the terms of the CERN-OHL-S v2 (https://ohwr.org/cern_ohl_s_v2.txt).
+  You may redistribute and modify this source and make products using it under
+  the terms of the CERN-OHL-S v2 (https://ohwr.org/cern_ohl_s_v2.txt).
 
-This source is distributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,
-INCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A
-PARTICULAR PURPOSE. Please see the CERN-OHL-S v2 for applicable conditions. 
+  This source is distributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY,
+  INCLUDING OF MERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS FOR A
+  PARTICULAR PURPOSE. Please see the CERN-OHL-S v2 for applicable conditions.
 
-Source location: https://github.com/pfroud/jeopardy-buzzer-controller
+  Source location: https://github.com/pfroud/jeopardy-buzzer-controller
 */
