@@ -37,12 +37,12 @@ typedef struct {
 
 #define CHANNEL_COUNT 8
 Channel channels[] = {
-  {10, '1', false}, // Pin 13 on KiCad symbol is Arduino pin 10
-  {16, '2', false}, // Pin 14 on KiCad symbol is Arduino pin 16
-  {14, '3', false}, // Pin 15 on KiCad symbol is Arduino pin 14
-  {15, '4', false}, // Pin 16 on KiCad symbol is Arduino pin 15
-  {18, '5', false}, // Pin 17 on KiCad symbol is Arduino pin 18
-  {19, '6', false}, // Pin 18 on KiCad symbol is Arduino pin 19
+  {10, '1', false, LOW, 0}, // Pin 13 on KiCad symbol is Arduino pin 10
+  {16, '2', false, LOW, 0}, // Pin 14 on KiCad symbol is Arduino pin 16
+  {14, '3', false, LOW, 0}, // Pin 15 on KiCad symbol is Arduino pin 14
+  {15, '4', false, LOW, 0}, // Pin 16 on KiCad symbol is Arduino pin 15
+  {18, '5', false, LOW, 0}, // Pin 17 on KiCad symbol is Arduino pin 18
+  {19, '6', false, LOW, 0}, // Pin 18 on KiCad symbol is Arduino pin 19
   {20, '7', false, LOW, 0}, // Pin 19 on KiCad symbol is Arduino pin 20
   {21, '8', false, LOW, 0}  // Pin 20 on KiCad symbol is Arduino pin 21
 };
@@ -61,10 +61,10 @@ void setup() {
 
 
 void loop() {
-  
+
   // Inverted because using the Arduino's built-in pull-up resistor.
   const bool isEnabled = digitalRead(PIN_INPUT_ENABLE_SWITCH) == LOW;
-  
+
   if (isEnabled) {
     digitalWrite(PIN_OUTPUT_ENABLE_LIGHT, HIGH);
     doKeyboardStuff();
@@ -77,36 +77,71 @@ void loop() {
 
 void doKeyboardStuff() {
   for (int i = 0; i < CHANNEL_COUNT; i++) {
+    const unsigned long now = millis();
+
 
     // Inverted because using the Arduino's built-in pull-up resistor.
     const bool presentDigitalReading = digitalRead(channels[i].arduinoPinNumber) == LOW;
 
-    if (PRINT_DEBUG_TO_SERIAL) {
-      Serial.print(presentDigitalReading ? "1 " : "0 " );
+    if (PRINT_DEBUG_TO_SERIAL && i == 0) {
+      Serial.print("time=");
+      Serial.print(now);
+      Serial.print("; presentDigitalReading=");
+      Serial.print(presentDigitalReading);
+      Serial.print("; lastDigitalReading=");
+      Serial.print(channels[i].lastDigitalReading);
+      Serial.print("; ");
     }
 
     if (presentDigitalReading != channels[i].lastDigitalReading) {
-      // Reset the debounce timer.
+      if (PRINT_DEBUG_TO_SERIAL && i == 0) {
+        Serial.print("Resetting the timer. ");
+      }
       channels[i].lastDebounceTimestamp = millis();
     }
 
-    if ((millis() - channels[i].lastDebounceTimestamp) > DEBOUNCE_DELAY_MILLISEC) {
+    // TODO I think this if block can go inside an else block from the previous if statement
+    if ((now - channels[i].lastDebounceTimestamp) > DEBOUNCE_DELAY_MILLISEC) {
       // The present reading has been there for longer than the debounce delay.
 
+      if (PRINT_DEBUG_TO_SERIAL && i == 0) {
+        Serial.print("Got past the delay. isSoftwareKeyboardKeyDown=");
+        Serial.print(channels[i].isSoftwareKeyboardKeyDown);
+        Serial.print("; ");
+      }
+
       if (presentDigitalReading != channels[i].isSoftwareKeyboardKeyDown) {
+
         // https://www.arduino.cc/reference/en/language/functions/usb/keyboard/
         if (presentDigitalReading) {
+          if (PRINT_DEBUG_TO_SERIAL && i == 0) {
+            Serial.print("Pressing the keyboard key. ");
+          }
           Keyboard.press(channels[i].keyboardCharacter);
         } else {
+          if (PRINT_DEBUG_TO_SERIAL && i == 0) {
+            Serial.print("Releasing the keyboard key. ");
+          }
           Keyboard.release(channels[i].keyboardCharacter);
+        }
+
+        if (PRINT_DEBUG_TO_SERIAL && i == 0) {
+          Serial.print("Setting isSoftwareKeyboardKeyDown to ");
+          Serial.print(presentDigitalReading);
+          Serial.print(". ");
         }
         channels[i].isSoftwareKeyboardKeyDown = presentDigitalReading;
       }
     }
 
+    if (PRINT_DEBUG_TO_SERIAL && i == 0) {
+      Serial.print("Setting lastDigitalReading to ");
+      Serial.print(presentDigitalReading);
+      Serial.print(". ");
+    }
     channels[i].lastDigitalReading = presentDigitalReading;
-
   }
+
   if (PRINT_DEBUG_TO_SERIAL) {
     Serial.println();
   }
