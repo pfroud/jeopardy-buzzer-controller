@@ -21,18 +21,18 @@
                      +-----------+
 */
 
-// Pin 7 on KiCad symbol is Arduino pin 4
-#define PIN_ENABLE_SWITCH 4
-
-// Pin 8 on KiCad symbol is Arduino pin 5
-#define PIN_ENABLE_LIGHT 5
-
+#define PIN_INPUT_ENABLE_SWITCH 4 // Pin 7 on KiCad symbol is Arduino pin 4
+#define PIN_OUTPUT_ENABLE_LIGHT 5 // Pin 8 on KiCad symbol is Arduino pin 5
 #define PRINT_DEBUG_TO_SERIAL true
+#define DEBOUNCE_DELAY_MILLISEC 50
 
 typedef struct {
   int arduinoPinNumber;
   char keyboardCharacter;
   bool isSoftwareKeyboardKeyDown;
+  // stuff for debouncing is below
+  int lastDigitalReading;
+  unsigned long lastDebounceTimestamp;
 } Channel;
 
 #define CHANNEL_COUNT 8
@@ -43,18 +43,17 @@ Channel channels[] = {
   {15, '4', false}, // Pin 16 on KiCad symbol is Arduino pin 15
   {18, '5', false}, // Pin 17 on KiCad symbol is Arduino pin 18
   {19, '6', false}, // Pin 18 on KiCad symbol is Arduino pin 19
-  {20, '7', false}, // Pin 19 on KiCad symbol is Arduino pin 20
-  {21, '8', false}  // Pin 20 on KiCad symbol is Arduino pin 21
+  {20, '7', false, LOW, 0}, // Pin 19 on KiCad symbol is Arduino pin 20
+  {21, '8', false, LOW, 0}  // Pin 20 on KiCad symbol is Arduino pin 21
 };
 
 void setup() {
-  pinMode(PIN_ENABLE_SWITCH, INPUT_PULLUP);
-  pinMode(PIN_ENABLE_LIGHT, OUTPUT);
+  pinMode(PIN_INPUT_ENABLE_SWITCH, INPUT_PULLUP);
+  pinMode(PIN_OUTPUT_ENABLE_LIGHT, OUTPUT);
   for (int i = 0; i < CHANNEL_COUNT; i++) {
     pinMode(channels[i].arduinoPinNumber, INPUT_PULLUP);
   }
   Keyboard.begin();
-
   if (PRINT_DEBUG_TO_SERIAL) {
     Serial.begin(9600);
   }
@@ -62,44 +61,55 @@ void setup() {
 
 
 void loop() {
-  // Inverted because using built-in pull-up resistor.
-  const bool isEnabled = digitalRead(PIN_ENABLE_SWITCH) == LOW;
+  
+  // Inverted because using the Arduino's built-in pull-up resistor.
+  const bool isEnabled = digitalRead(PIN_INPUT_ENABLE_SWITCH) == LOW;
+  
   if (isEnabled) {
-    digitalWrite(PIN_ENABLE_LIGHT, HIGH);
+    digitalWrite(PIN_OUTPUT_ENABLE_LIGHT, HIGH);
     doKeyboardStuff();
   } else {
-    digitalWrite(PIN_ENABLE_LIGHT, LOW);
+    // TODO might need to release any keyboard keys that are pressed.
+    digitalWrite(PIN_OUTPUT_ENABLE_LIGHT, LOW);
   }
 
 }
 
 void doKeyboardStuff() {
   for (int i = 0; i < CHANNEL_COUNT; i++) {
-    const Channel presentChannel = channels[i];
 
-    // Inverted because using built-in pull-up resistor.
-    const bool isPhysicalButtonDown = digitalRead(presentChannel.arduinoPinNumber) == LOW;
-
-    if (isPhysicalButtonDown != presentChannel.isSoftwareKeyboardKeyDown) {
-      // https://www.arduino.cc/reference/en/language/functions/usb/keyboard/
-      if (isPhysicalButtonDown) {
-        Keyboard.press(presentChannel.keyboardCharacter);
-      } else {
-        Keyboard.release(presentChannel.keyboardCharacter);
-      }
-
-      // Changing the value in the presentChannel variable does not update the channels array
-      channels[i].isSoftwareKeyboardKeyDown = isPhysicalButtonDown;
-    }
+    // Inverted because using the Arduino's built-in pull-up resistor.
+    const bool presentDigitalReading = digitalRead(channels[i].arduinoPinNumber) == LOW;
 
     if (PRINT_DEBUG_TO_SERIAL) {
-      Serial.print(isPhysicalButtonDown ? "1 " : "0 " );
+      Serial.print(presentDigitalReading ? "1 " : "0 " );
     }
+
+    if (presentDigitalReading != channels[i].lastDigitalReading) {
+      // Reset the debounce timer.
+      channels[i].lastDebounceTimestamp = millis();
+    }
+
+    if ((millis() - channels[i].lastDebounceTimestamp) > DEBOUNCE_DELAY_MILLISEC) {
+      // The present reading has been there for longer than the debounce delay.
+
+      if (presentDigitalReading != channels[i].isSoftwareKeyboardKeyDown) {
+        // https://www.arduino.cc/reference/en/language/functions/usb/keyboard/
+        if (presentDigitalReading) {
+          Keyboard.press(channels[i].keyboardCharacter);
+        } else {
+          Keyboard.release(channels[i].keyboardCharacter);
+        }
+        channels[i].isSoftwareKeyboardKeyDown = presentDigitalReading;
+      }
+    }
+
+    channels[i].lastDigitalReading = presentDigitalReading;
 
   }
   if (PRINT_DEBUG_TO_SERIAL) {
-      Serial.println();
-    }
+    Serial.println();
+  }
 }
 
 /*
