@@ -18,7 +18,7 @@
     7        10      |o         o|    15       14
     8        11      |o         o|    14       16
     9        12      |o         o|    13       10
-                     +-----------+  
+                     +-----------+
 */
 
 // Pin 7 on KiCad symbol is Arduino pin 4
@@ -26,6 +26,8 @@
 
 // Pin 8 on KiCad symbol is Arduino pin 5
 #define PIN_ENABLE_LIGHT 5
+
+#define PRINT_DEBUG_TO_SERIAL true
 
 typedef struct {
   int arduinoPinNumber;
@@ -52,6 +54,10 @@ void setup() {
     pinMode(channels[i].arduinoPinNumber, INPUT_PULLUP);
   }
   Keyboard.begin();
+
+  if (PRINT_DEBUG_TO_SERIAL) {
+    Serial.begin(9600);
+  }
 }
 
 
@@ -64,6 +70,7 @@ void loop() {
   } else {
     digitalWrite(PIN_ENABLE_LIGHT, LOW);
   }
+
 }
 
 void doKeyboardStuff() {
@@ -84,7 +91,15 @@ void doKeyboardStuff() {
       // Changing the value in the presentChannel variable does not update the channels array
       channels[i].isSoftwareKeyboardKeyDown = isPhysicalButtonDown;
     }
+
+    if (PRINT_DEBUG_TO_SERIAL) {
+      Serial.print(isPhysicalButtonDown ? "1 " : "0 " );
+    }
+
   }
+  if (PRINT_DEBUG_TO_SERIAL) {
+      Serial.println();
+    }
 }
 
 /*
