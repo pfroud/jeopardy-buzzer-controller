@@ -47,6 +47,8 @@ Channel channels[] = {
   {21, '8', false, LOW, 0}  // Pin 20 on KiCad symbol is Arduino pin 21
 };
 
+bool needToReleaseKeysWhenDisabled = false;
+
 void setup() {
   pinMode(PIN_INPUT_ENABLE_SWITCH, INPUT_PULLUP);
   pinMode(PIN_OUTPUT_ENABLE_LIGHT, OUTPUT);
@@ -64,10 +66,14 @@ void loop() {
 
   if (isEnabled) {
     digitalWrite(PIN_OUTPUT_ENABLE_LIGHT, HIGH);
+    needToReleaseKeysWhenDisabled = true;
     doKeyboardStuff();
   } else {
-    // TODO might need to release any keyboard keys that are pressed.
     digitalWrite(PIN_OUTPUT_ENABLE_LIGHT, LOW);
+    if (needToReleaseKeysWhenDisabled) {
+      releaseKeys();
+    }
+    needToReleaseKeysWhenDisabled = false;
   }
 
 }
@@ -90,7 +96,7 @@ void doKeyboardStuff() {
 
     if ((millis() - channels[i].lastDebounceTimestamp) > DEBOUNCE_DELAY_MILLISEC) {
       // The present reading has been there for longer than the debounce delay.
-      
+
       if (presentDigitalReading != channels[i].isSoftwareKeyboardKeyDown) {
         if (presentDigitalReading) {
           Keyboard.press(channels[i].keyboardCharacter);
@@ -104,6 +110,15 @@ void doKeyboardStuff() {
     channels[i].lastDigitalReading = presentDigitalReading;
   }
 
+}
+
+void releaseKeys() {
+  for (int i = 0; i < CHANNEL_COUNT; i++) {
+    if (channels[i].isSoftwareKeyboardKeyDown) {
+      Keyboard.release(channels[i].keyboardCharacter);
+      channels[i].isSoftwareKeyboardKeyDown = false;
+    }
+  }
 }
 
 /*
