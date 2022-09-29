@@ -23,8 +23,8 @@
 
 #define PIN_INPUT_ENABLE_SWITCH 4 // Pin 7 on KiCad symbol is Arduino pin 4
 #define PIN_OUTPUT_ENABLE_LIGHT 5 // Pin 8 on KiCad symbol is Arduino pin 5
-#define PRINT_DEBUG_TO_SERIAL true
-#define DEBOUNCE_DELAY_MILLISEC 50
+
+#define DEBOUNCE_DELAY_MILLISEC 5 // only five milliseconds needed!
 
 typedef struct {
   int arduinoPinNumber;
@@ -54,9 +54,6 @@ void setup() {
     pinMode(channels[i].arduinoPinNumber, INPUT_PULLUP);
   }
   Keyboard.begin();
-  if (PRINT_DEBUG_TO_SERIAL) {
-    Serial.begin(9600);
-  }
 }
 
 
@@ -77,74 +74,36 @@ void loop() {
 
 void doKeyboardStuff() {
   for (int i = 0; i < CHANNEL_COUNT; i++) {
-    const unsigned long now = millis();
-
 
     // Inverted because using the Arduino's built-in pull-up resistor.
     const bool presentDigitalReading = digitalRead(channels[i].arduinoPinNumber) == LOW;
 
-    if (PRINT_DEBUG_TO_SERIAL && i == 0) {
-      Serial.print("time=");
-      Serial.print(now);
-      Serial.print("; presentDigitalReading=");
-      Serial.print(presentDigitalReading);
-      Serial.print("; lastDigitalReading=");
-      Serial.print(channels[i].lastDigitalReading);
-      Serial.print("; ");
-    }
+    /*
+      Debouncing code is from the build-in Arduino example.
+      Accessable in the Arduino software from File > Examples > 02.Digital > Debounce
+      Also online at https://docs.arduino.cc/built-in-examples/digital/Debounce
+    */
 
     if (presentDigitalReading != channels[i].lastDigitalReading) {
-      if (PRINT_DEBUG_TO_SERIAL && i == 0) {
-        Serial.print("Resetting the timer. ");
-      }
       channels[i].lastDebounceTimestamp = millis();
     }
 
-    // TODO I think this if block can go inside an else block from the previous if statement
-    if ((now - channels[i].lastDebounceTimestamp) > DEBOUNCE_DELAY_MILLISEC) {
+    if ((millis() - channels[i].lastDebounceTimestamp) > DEBOUNCE_DELAY_MILLISEC) {
       // The present reading has been there for longer than the debounce delay.
-
-      if (PRINT_DEBUG_TO_SERIAL && i == 0) {
-        Serial.print("Got past the delay. isSoftwareKeyboardKeyDown=");
-        Serial.print(channels[i].isSoftwareKeyboardKeyDown);
-        Serial.print("; ");
-      }
-
+      
       if (presentDigitalReading != channels[i].isSoftwareKeyboardKeyDown) {
-
-        // https://www.arduino.cc/reference/en/language/functions/usb/keyboard/
         if (presentDigitalReading) {
-          if (PRINT_DEBUG_TO_SERIAL && i == 0) {
-            Serial.print("Pressing the keyboard key. ");
-          }
           Keyboard.press(channels[i].keyboardCharacter);
         } else {
-          if (PRINT_DEBUG_TO_SERIAL && i == 0) {
-            Serial.print("Releasing the keyboard key. ");
-          }
           Keyboard.release(channels[i].keyboardCharacter);
-        }
-
-        if (PRINT_DEBUG_TO_SERIAL && i == 0) {
-          Serial.print("Setting isSoftwareKeyboardKeyDown to ");
-          Serial.print(presentDigitalReading);
-          Serial.print(". ");
         }
         channels[i].isSoftwareKeyboardKeyDown = presentDigitalReading;
       }
     }
 
-    if (PRINT_DEBUG_TO_SERIAL && i == 0) {
-      Serial.print("Setting lastDigitalReading to ");
-      Serial.print(presentDigitalReading);
-      Serial.print(". ");
-    }
     channels[i].lastDigitalReading = presentDigitalReading;
   }
 
-  if (PRINT_DEBUG_TO_SERIAL) {
-    Serial.println();
-  }
 }
 
 /*
