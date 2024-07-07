@@ -8,8 +8,8 @@ Pictures of the PCB:
 <td><img src="images_for_readme/PCB/kicad-screenshot-back.png" alt="Screenshot of back of PCB in KiCad"></td>
 </tr>
 <tr>
-<td><img src="images_for_readme/PCB/pcb-photo-front.jpeg" alt="Photo of front of PCB"></td>
-<td><img src="images_for_readme/PCB/pcb-photo-back.jpeg" alt="Photo of back of PCB"></td>
+<td><img src="images_for_readme/PCB/PCB-photo-front.jpeg" alt="Photo of front of PCB"></td>
+<td><img src="images_for_readme/PCB/PCB-photo-back.jpeg" alt="Photo of back of PCB"></td>
 </tr>
 </table>
 
