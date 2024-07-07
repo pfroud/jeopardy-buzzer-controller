@@ -99,7 +99,7 @@ The controller should use female receptacles, and the buzzers should use male ca
     </td>
     <td align="center">
         <a href="https://www.neutrik.us/en-us/product/nc4fxx">
-            <img src="docs/img/XLR-connectors/Neutrik-NC4fXX-XLR-cable-connector.jpg" alt="Neutrik NC4FXX XLR cable connector">
+            <img src="docs/img/XLR-connectors/Neutrik-NC4FXX-XLR-cable-connector.jpg" alt="Neutrik NC4FXX XLR cable connector">
             <br>
             NC4FXX
         </a>
