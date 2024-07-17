@@ -22,11 +22,18 @@ Next I ordered [M2.5 machine screw with Torx drive](https://www.aliexpress.us/it
 
 Then I found [#4-40 machine screws with Torx drive](https://www.fastenal.com/product/details/0143903) at Fastenal. The 5/8-inch length were on sale for US$0.0039 (0.39¢) each!!!
 
+<!-- Use one-cell table to add border around image -->
+<table align="center"><tr><td>
 <img src="img/screws/fastenal-product-page-screenshot.png" alt="Screenshot of Fastenal product page for machine screws, showing the price of 0.39 cents each">
+</td></tr></table>
 
 Amusingly, the price was rounded down and displayed as "$0.00" in the table of search results:
 
-<img src="img/screws/fastenal-search-results-screenshot.png" alt="Screenshot of Fastenal search results page where the price for a row is $0.00" width="100%">
+
+<table align="center"><tr><td>
+<img src="img/screws/fastenal-search-results-screenshot.png" alt="Screenshot of Fastenal search results page where the price for a row is $0.00">    
+</td></tr></table>
+
 
 I ordered 200 pieces for US$0.78 total. Shipping was US$12. These screws work well and the Torx head is pleasant to use.
 
