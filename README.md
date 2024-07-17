@@ -15,6 +15,7 @@ The PCB was designed using KiCad version 6 and fabricated by JLCPCB.
 ## Parts
 
 The two most interesting parts are:
+
 * [Sparkfun Pro Micro](https://www.sparkfun.com/products/12640) (not Mini, not Nano)
     * Informally called "Arduino Pro Micro" but it's actually a Sparkfun product which is Arduino-compatible.
     * To learn about the software running on the Arduino, see the [Arduino directory](Arduino).
@@ -22,6 +23,7 @@ The two most interesting parts are:
     * To learn more, go to the "XLR connectors" section in this document.
 
 Other parts:
+
 * [12-pin female headers](https://www.aliexpress.us/item/2255801012106911.html) to hold the Arduino.
     * The Arduino could instead be soldered directly to the PCB if you're feeling confident.
 * A toggle switch to enable/disable the Arduino software.
@@ -29,8 +31,7 @@ Other parts:
 * [Panel-mount LED lights](https://www.aliexpress.com/item/3256803816108154.html) to indicate when it's powered and enabled.
 * [2-pin pluggable terminal blocks](https://www.aliexpress.us/item/2251832631116561.html) to connect the toggle switch and indicator LEDs to the PCB.
 * A 6mm tactile pushbutton to reset the Arduino.
-   * The Pro Micro does not have a built-in reset button.
-
+    * The Pro Micro does not have a built-in reset button.
 
 ## Known bugs & future work
 

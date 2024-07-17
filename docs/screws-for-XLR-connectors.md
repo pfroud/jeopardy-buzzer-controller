@@ -29,11 +29,9 @@ Then I found [#4-40 machine screws with Torx drive](https://www.fastenal.com/pro
 
 Amusingly, the price was rounded down and displayed as "$0.00" in the table of search results:
 
-
 <table align="center"><tr><td>
-<img src="img/screws/fastenal-search-results-screenshot.png" alt="Screenshot of Fastenal search results page where the price for a row is $0.00">    
+<img src="img/screws/fastenal-search-results-screenshot.png" alt="Screenshot of Fastenal search results page where the price for a row is $0.00">
 </td></tr></table>
-
 
 I ordered 200 pieces for US$0.78 total. Shipping was US$12. These screws work well and the Torx head is pleasant to use.
 

@@ -38,7 +38,6 @@ Here's a a table to cross-reference the pin numbers (excluding RX, TX, RAW, GND,
 |      11         |        8        | &emsp;&emsp; |       14        |        16      |
 |      12         |        9        | &emsp;&emsp; |       13        |        10      |
 
-
 ## Debouncing
 
 Contacts in a mechanical switch bounce when actuated, which makes the signal appear to be repeatedly opening/closing. [Debouncing](https://en.wikipedia.org/wiki/Keyboard_technology#Debouncing) waits for the signal to settle before deciding if the switch moved.

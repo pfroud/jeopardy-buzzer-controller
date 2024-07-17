@@ -2,8 +2,7 @@
 
 This is a deep dive into the poll rate.
 
-Polling rate is how fast the host PC queries the keyboard for inputs. 
-
+Polling rate is how fast the host PC queries the keyboard for inputs.
 
 ## Introduction
 
@@ -32,7 +31,6 @@ Peacock writes the units are "1ms for low/full speed devices and 125us for high 
 
 The Pro Micro uses Full speed so the intervals are in 1 millisecond frames. (The software below shows what speed the keyboard uses.)
 
-
 ## Definition in Arduino keyboard library
 
 The USB HID endpoint is created in [HID.cpp](https://github.com/arduino/ArduinoCore-avr/blob/63092126a406402022f943ac048fa195ed7e944b/libraries/HID/src/HID.cpp#L32-L35):
@@ -49,10 +47,10 @@ The `D_ENDPOINT` macro is defined in [USBCore.h](https://github.com/arduino/Ardu
 
 ```C++
 #define D_ENDPOINT(_addr,_attr,_packetSize, _interval) \
-	{ 7, 5, _addr,_attr,_packetSize, _interval }
+    { 7, 5, _addr,_attr,_packetSize, _interval }
 ```
 
-The last parameter is the `_interval`, which is set to `0x01`. The units are one-millisecond frames so the polling rate is 1000 Hz. 
+The last parameter is the `_interval`, which is set to `0x01`. The units are one-millisecond frames so the polling rate is 1000 Hz.
 
 ## Measuring the polling rate
 
@@ -69,13 +67,13 @@ void loop() {
     delay(2000);
 }
 ```
+
 Javascript keyboard events have millisecond precision. Due to rounding or aliasing or something, some of the keypresses last zero millisec!
 
 <!-- Use one-cell table to add border around image -->
 <table align="center"><tr><td>
-<img src="img/scan-rate-estimator-screenshot.png" height="500">
+<img src="img/scan-rate-estimator-screenshot.png" alt="Screenshot of scan rate estimator" height="500">
 </td></tr></table>
-
 
 ## Viewing the bInterval field on the host PC
 
@@ -95,7 +93,7 @@ config --> interface
 interface --> endpoint
 ```
 
-The bInterval field is in the endpoint descriptor. See https://beyondlogic.org/usbnutshell/usb5.shtml.
+The bInterval field is in the endpoint descriptor. See <https://beyondlogic.org/usbnutshell/usb5.shtml>.
 
 ### On Linux
 
@@ -106,7 +104,7 @@ Excerpted output:
 <details>
 <summary>Expand output from <code>lsusb</code></summary>
 
-```
+```text
 Bus 001 Device 004: ID 1b4f:9206  
 Device Descriptor:
   bLength                18
@@ -173,7 +171,7 @@ Excerpted output:
 <details>
 <summary>Expand output from USB Device Tree Viewer</summary>
 
-```
+```text
       ========================== Summary =========================
 Vendor ID                : 0x1B4F (Spark Fun Electronics)
 Product ID               : 0x9206
