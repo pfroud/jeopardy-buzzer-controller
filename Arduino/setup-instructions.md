@@ -13,11 +13,11 @@ Next, follow the [Pro Micro Hookup Guide](https://learn.sparkfun.com/tutorials/p
 
 When finished, you should be able to select Tools > Board > SparkFun AVR Boards > SparkFun Pro Micro:
 
-![Screenshot of Arduino software with SparkFun AVR boards available](img/setup-instructions/choose-sparkfun-pro-micro-board.png)
+![Screenshot of Arduino software with SparkFun AVR boards available](img/setup-instructions/arduino-software-choose-board.png)
 
 Once you select that board, the Tools menu will have another sub-menu called Processor:
 
-![Screenshot of Arduino software showing the menu to select the ATmega32U4 processor type](img/setup-instructions/choose-processor-options.png)
+![Screenshot of Arduino software showing the menu to select the ATmega32U4 processor type](img/setup-instructions/arduino-software-choose-processor.png)
 
 There are two options:
 
@@ -28,7 +28,7 @@ To tell which version you have, look for a relatively large shiny silver rectang
 
 Here's what it looks like on the board I have:
 
-![Photo illustration showing an Sparkfun Pro Micro with a close-up view of the crystal oscillator](img/setup-instructions/clock-speed.jpg)
+![Photo illustration showing an Sparkfun Pro Micro with a close-up view of the crystal oscillator](img/setup-instructions/pro-micro-crystal-oscillator.jpg)
 
 You can also just try both processor options. Try uploading the [example Blinkies sketch](https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide/example-1-blinkies) sketch. If the right processor is selected, the upload will finish in a few seconds. Otherwise, the upload will hang or fail and print weird errors. If that happens, unplug the USB cable connecting the Arduino board to your computer and the upload process wil immediately stop.
 
@@ -40,7 +40,7 @@ See the Arduino help page ['Error: avrdude' when uploading](https://support.ardu
 
 1. Search for the Keyboard library, select the newest version, and install it:
 
-    ![Screenshot of Keyboard library in Arduino Library Manager](img/setup-instructions/arduino-keyboard-library.png)
+    ![Screenshot of Keyboard library in Arduino Library Manager](img/setup-instructions/arduino-software-keyboard-library.png)
 
     Link to documentation:
 
