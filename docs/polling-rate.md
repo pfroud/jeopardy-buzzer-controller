@@ -68,11 +68,17 @@ void loop() {
 }
 ```
 
-Javascript keyboard events have millisecond precision. Due to rounding or aliasing or something, some of the keypresses last zero millisec!
+Yes we are using a scan rate estimator for the polling rate. The webpage confirms:
+
+> The *scan rate* of a keyboard measures how frequently the keyboard updates (internally) the state of its key matrix.... Note that scan rate is **not** the same as poll rate. On a USB device, *poll rate* refers to how often the OS will check the USB device for updates. The poll rate together with the scan rate determines the maximum input latency.
+
+This device does not have a [matrix circuit](https://en.wikipedia.org/wiki/Keyboard_matrix_circuit) so the scan rate is extremely high. Assuming the scan period is zero, I think this tool lets us measure the poll rate.
+
+Javascript keyboard events have millisecond precision. Due to rounding or aliasing or something, some of the keypresses reportedly zero milliseconds!
 
 <!-- Use one-cell table to add border around image -->
 <table align="center"><tr><td>
-<img src="img/scan-rate-estimator-screenshot.png" alt="Screenshot of scan rate estimator" height="500">
+<img src="img/polling-rate/scan-rate-estimator-screenshot.png" alt="Screenshot of scan rate estimator" height="500">
 </td></tr></table>
 
 ## Viewing the bInterval field on the host PC
@@ -160,7 +166,7 @@ The last line shows `bInterval` is set to one.
 
 For a GUI, use [usbview](http://www.kroah.com/linux-usb/) by Greg Kroah-Hartman:
 
-![Screenshot of Pro Micro in USBview](img/pro-micro-in-usbview.png)
+![Screenshot of Pro Micro in USBview](img/polling-rate/pro-micro-in-usbview.png)
 
 ### On Windows
 
