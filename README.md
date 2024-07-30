@@ -33,6 +33,26 @@ Other parts:
 * A 6mm tactile pushbutton to reset the Arduino.
     * The Pro Micro does not have a built-in reset button.
 
+## Buzzers
+
+On the Jeopardy TV show each contestant holds a thumb-operated buzzer ([source](https://www.jeopardy.com/jbuzz/behind-scenes/how-does-jeopardy-buzzer-work)).
+
+My game has teams instead of individual players, so the buzzers rest on a table for access by all team members. I got rugged metal footswitches to withstand being slammed when someone thinks of an answer.
+
+![Photo of two footswitches used as buzzers](docs/img/buzzers/buzzers-exterior.jpeg)
+
+I started with Treadlite footswitches from at HSC Electronics (RIP) then got some TEMCo ones from [eBay](https://www.ebay.com/itm/372481343124).
+
+On each footswitch I had to grind down the metal housing a little to fit a [PG7 cord grip](https://www.ebay.com/itm/222727122407). (PG stands for [Panzergewinde](https://en.wikipedia.org/wiki/Panzergewinde) which is an old German thread standard inexplicably still in use.)
+
+The Treadlite model (below left) has a seemingly-custom switch mechanism inside, while the TEMCo model (below right) has a standard limit switch. The Treadlite ones originally come with *two* switches mounted at different heights but I removed the lower ones. The cable I used has a foil shield so I connected the drain wire to the metal housing for fun.
+
+![Photo of two footswitches with the tops removed to show the switches and wiring inside](docs/img/buzzers/buzzers-interior.jpeg)
+
+Eight buzzers are supported although I rarely use more than six.
+
+![Photo of controller with eight buzzer cables plugged in](docs/img/buzzers/buzzer-cables-plugged-in.jpeg)
+
 ## Known bugs & future work
 
 ### PCB design
