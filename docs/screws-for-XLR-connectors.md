@@ -1,6 +1,6 @@
 # Screws for XLR connectors
 
-![Photo of XLR connectors with screws](img/screws/XLR-connectors-with-screws.jpeg)
+![Photo of XLR connectors with screws](img/screws-for-XLR-connectors/XLR-connectors-with-screws.jpeg)
 
 Each XLR receptacle has two holes for screws. The Neutrik website said to use [B-SCREW-1-8](https://www.neutrik.com/en/product/b-screw-1-8) which is:
 
@@ -24,13 +24,13 @@ Then I found [#4-40 machine screws with Torx drive](https://www.fastenal.com/pro
 
 <!-- Use one-cell table to add border around image -->
 <table align="center"><tr><td>
-<img src="img/screws/fastenal-product-page-screenshot.png" alt="Screenshot of Fastenal product page for machine screws, showing the price of 0.39 cents each">
+<img src="img/screws-for-XLR-connectors/fastenal-product-page-screenshot.png" alt="Screenshot of Fastenal product page for machine screws, showing the price of 0.39 cents each">
 </td></tr></table>
 
 Amusingly, the price was rounded down and displayed as "$0.00" in the table of search results:
 
 <table align="center"><tr><td>
-<img src="img/screws/fastenal-search-results-screenshot.png" alt="Screenshot of Fastenal search results page where the price for a row is $0.00">
+<img src="img/screws-for-XLR-connectors/fastenal-search-results-screenshot.png" alt="Screenshot of Fastenal search results page where the price for a row is $0.00">
 </td></tr></table>
 
 I ordered 200 pieces for US$0.78 total. Shipping was US$12. These screws work well and the Torx head is pleasant to use.
