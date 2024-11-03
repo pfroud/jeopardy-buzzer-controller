@@ -15,8 +15,13 @@ Pictures of the PCB:
 
 Only eight buzzers are supported and the Arduino has twelve digital I/O pins, so no [matrix circuit](https://en.wikipedia.org/wiki/Keyboard_matrix_circuit) is needed.
 
-Here are screenshots of the schematic so you don't need to download / install / launch KiCad.
+## Schematic screenshots
 
-![Screenshot of schematic showing the Arduino, power indicator light, reset button, enable switch, and enable indicator light](images_for_readme/schematic/kicad-schematic-screenshot-main.png)
+Here are screenshots of the schematic so you don't need to download / install / launch KiCad:
 
-![Screenshot of the schematic showing the XLR connectors](images_for_readme/schematic/kicad-schematic-screenshot-XLRs.png)
+<table>
+<tr>
+<td><img src="images_for_readme/schematic/kicad-schematic-screenshot-main.png" alt="Screenshot of schematic showing the Arduino, power indicator light, reset button, enable switch, and enable indicator light"></td>
+<td><img src="images_for_readme/schematic/kicad-schematic-screenshot-XLRs.png" alt="Screenshot of the schematic showing the XLR connectors"></td>
+</tr>
+</table>
