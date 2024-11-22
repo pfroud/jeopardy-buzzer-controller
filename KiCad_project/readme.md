@@ -69,4 +69,4 @@ I edited the footprint to make the black plastic housing touch the PCB. First I 
 <img src="images_for_readme/XLR-connector/XLR-footprint-comparison-screenshot.png" alt="Screenshot of two XLR footprints" height="400">
 </p>
 
-But I never got a board fabricated with the modified footprint! When assembling the PCB into the enclosure, I discovered that having the connectors on long legs was actually very helpful because they could bend slightly to accommodate imperfect hole alignment in the plastic wall.
+But I never got a board fabricated with the modified footprint! When assembling the PCB into the [enclosure](../docs/enclosure.md), I discovered that having the connectors on long legs was actually very helpful because they could bend slightly to accommodate imperfect hole alignment in the plastic wall.

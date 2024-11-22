@@ -33,6 +33,8 @@ Other parts:
 * A 6mm tactile pushbutton to reset the Arduino.
     * The Pro Micro does not have a built-in reset button.
 
+Then everything gets assembled into an [enclosure](docs/enclosure.md).
+
 ## Buzzers
 
 On the Jeopardy TV show each contestant holds a thumb-operated buzzer ([source](https://www.jeopardy.com/jbuzz/behind-scenes/how-does-jeopardy-buzzer-work)).
