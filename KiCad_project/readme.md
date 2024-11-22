@@ -35,7 +35,7 @@ They are [Neutrik NC4MBV](https://www.neutrik.com/en/product/nc4mbv-1) which are
 Each connector has four cylindrical pins with shoulders. A rectangular tab on the bottom contacts the shell of the mating connector.
 
 <p align="center">
-<img src="images_for_readme/XLR-connector/XLR-connector-pins-rear-view.jpeg" alt="photo of XLR connector pins. four cylindrical pins and one rectangular one." height="400">
+<img src="images_for_readme/XLR-connector/XLR-connector-pins-rear-view.jpeg" alt="Photo of the back of an XLR connector, showing cylindrical pins and one rectangular tab." height="500">
 </p>
 
 KiCad comes with symbols & footprints for 4-pin XLR connectors; I modified both slightly.
@@ -45,7 +45,7 @@ KiCad comes with symbols & footprints for 4-pin XLR connectors; I modified both 
 I added a ground pin to the "XLR4" symbol in the KiCad [Connector](https://kicad.github.io/symbols/Connector) library:
 
 <p align="center">
-<img src="images_for_readme/XLR-connector/XLR-symbol-comparison-screenshot.png" alt="Screenshot of two XLR schematic symbols" height="200">
+<img src="images_for_readme/XLR-connector/XLR-symbol-comparison-screenshot.png" alt="Screenshot of two XLR schematic symbols, one has a ground pin added." height="200">
 </p>
 
 ### Footprint
@@ -65,6 +65,8 @@ To see a comparison, I drilled out the pads on an extra board. In the pictures b
 
 I edited the footprint to make the black plastic housing touch the PCB. First I increased the sizes of pads 1-4 so the full diameter of the cylinder could go through the board. Then I changed the ground pin from a circle to a slot to let the bigger non-square part of the ground tab go through as well.
 
-![Screenshot of two XLR footprints](images_for_readme/XLR-connector/XLR-footprint-comparison-screenshot.png)
+<p align="center">
+<img src="images_for_readme/XLR-connector/XLR-footprint-comparison-screenshot.png" alt="Screenshot of two XLR footprints" height="400">
+</p>
 
 But I never got a board fabricated with the modified footprint! When assembling the PCB into the enclosure, I discovered that having the connectors on long legs was actually very helpful because they could bend slightly to accommodate imperfect hole alignment in the plastic wall.
