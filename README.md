@@ -127,3 +127,21 @@ The controller should use female receptacles, and the buzzers should use male ca
     </td>
 </tr>
 </table>
+
+## Previous versions of my Jeopardy buzzer controller
+
+I made my first Jeopardy buzzer controller in 2018. It used the the PCB from an off-the-shelf USB keyboard (a QWERTY keyboard not a music keyboard) to convert physical button presses into USB HID keystrokes.
+
+Inside the case of a broken power tool battery charger was a tangle of wires and Wago lever nuts. I used barrel jacks intended for DC power to connect the buzzers because they were easily available. This worked acceptably well but looked crazy:
+
+![Photo of several wires coming out of a handheld black plastic box](docs/img/previous-versions/wires-in-battery-charger.jpg)
+
+In 2020 re-did the enclosure and wiring but kept using barrel jacks:
+
+![Photo of the outside of a black plastic box with ten connectors on the front](docs/img/previous-versions/black-plastic-box-exterior.jpeg)
+
+Inside the new enclosure, I upgraded to a prototype board and pluggable wire-to-board connectors. The USB keyboard PCB is visible on the left:
+
+![Photo of the inside of the black plastic box showing two circuit boards and a bunch of wires and connectors](docs/img/previous-versions/black-plastic-box-interior.jpeg)
+
+In 2022 I re-did the whole thing with a custom PCB and Arduino (which is this repository).
